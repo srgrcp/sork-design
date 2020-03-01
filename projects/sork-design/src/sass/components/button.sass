@@ -23,7 +23,11 @@ $not: ''
     line-height: $line-height
     cursor: pointer
     border: $control-border solid transparent
-    &.small
+    &.short
+        padding: calc(#{$control-vertical-padding} - #{$control-border})
+        &.small
+            padding: calc(#{$control-vertical-small-padding} - #{$control-border}) calc(#{$control-vertical-padding} - #{$control-border})
+    &.small:not(.short)
         padding: $control-small-padding
     @each $name, $pair in $colors
         $color: nth($pair, 1)
@@ -54,7 +58,7 @@ $not: ''
     -moz-appearance: none
     -webkit-appearance: none
     background-color: $bg
-    border: none
+    border: 1px solid transparent
     cursor: pointer
     pointer-events: auto
     display: inline-block
@@ -91,6 +95,22 @@ $not: ''
     &:focus
         &:not(:active)
             box-shadow: $button-shadow $color
+    @each $name, $pair in $colors
+        $color: nth($pair, 1)
+        $hover: nth($pair, 2)
+        $text: nth($pair, 3)
+        &.#{$name}
+            background-color: $color
+            &::before,
+            &::after
+                background-color: $text
+            &:hover
+                background-color: $hover
+            &:active
+                background-color: $color
+            &:focus
+                &:not(:active)
+                    box-shadow: $button-shadow $text
 
 $close-transform: translateX(-50%) translateY(-50%) rotate(45deg)
 =close($color)

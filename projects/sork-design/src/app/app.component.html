@@ -2,27 +2,69 @@
 
 <section class="section">
     <div class="content">
-        <h1 class="title">Title</h1>
-        <p>test</p>
+        <h1 class="title">Sork Design</h1>
+        <p>SASS Framework</p>
     </div>
 </section>
 
 <section class="section">
     <div class="box">
         <div class="content">
-            <h2 class="subtitle">Subtitle</h2>
+            <h1 class="title">Code</h1>
             <code>JavaScript {{ "{ test: 'hello' }" }}</code>
+            <h1 class="title">Buttons</h1>
             <div class="actions">
                 <button class="button primary">Hello World!</button>
+                <button class="button short primary">Short</button>
                 <button class="plus"></button>
                 <button class="minus"></button>
                 <button class="close"></button>
             </div>
             <div class="actions">
+                <button class="button accent">Hello World!</button>
+                <button class="button short dark">Short</button>
+                <button class="plus dark"></button>
+                <button class="minus dark"></button>
+                <button class="close dark"></button>
+            </div>
+            <div class="actions">
                 <button class="button small primary">Hello World!</button>
+                <button class="button short small primary">Short</button>
                 <button class="plus small"></button>
                 <button class="minus small"></button>
                 <button class="close small"></button>
+            </div>
+            <div class="actions">
+                <button class="button small accent">Hello World!</button>
+                <button class="button short small dark">Short</button>
+                <button class="plus small dark"></button>
+                <button class="minus small dark"></button>
+                <button class="close small dark"></button>
+            </div>
+
+            <h1 class="title">Modals</h1>
+
+            <div [class.active]="modal" class="modal">
+                <div (click)="modal = false" class="overlay"></div>
+                <div class="window">
+                    <div class="header">
+                        <p>Modal Header</p>
+                        <button (click)="modal = false" class="close"></button>
+                    </div>
+                    <div class="content">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et dapibus magna. Donec bibendum massa libero. In id nibh pellentesque, gravida risus in, tempor tortor. Aenean suscipit condimentum nulla, eget pretium lorem imperdiet ullamcorper. Cras consequat suscipit metus, quis maximus nisl blandit nec. In scelerisque cursus feugiat. Donec vulputate porta nulla rutrum blandit. Vivamus faucibus sagittis mauris vitae rutrum. Pellentesque lacinia massa vel erat mollis blandit.
+                        </p>
+                    </div>
+                    <div class="footer">
+                        <button (click)="modal = false" class="button black">Cancel</button>
+                        <button class="button primary">Primary</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button (click)="modal = !modal" class="button primary">Open Modal</button>
             </div>
         </div>
     </div>
