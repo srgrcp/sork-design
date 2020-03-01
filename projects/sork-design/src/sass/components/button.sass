@@ -1,0 +1,117 @@
+$not: ''
+@each $name, $pairs in $colors
+    $not: $not + ':not(.' + $name + ')'
+
+=base-button($bg, $text, $border, $bg-hover, $border-hover)
+    background-color: $bg
+    color: $text
+    border: $control-border solid $border
+    &:hover
+        background-color: $bg-hover
+        border-color: $border-hover
+    &:active
+        border-color: $border
+    &:focus
+        outline: none
+        &:not(:active)
+            box-shadow: $button-shadow $border
+
+.button
+    font-family: $font-family
+    font-size: 1rem
+    padding: $control-padding
+    line-height: $line-height
+    cursor: pointer
+    border: $control-border solid transparent
+    &.small
+        padding: $control-small-padding
+    @each $name, $pair in $colors
+        $color: nth($pair, 1)
+        $hover: nth($pair, 2)
+        $text: nth($pair, 3)
+        &.#{$name}
+            background-color: $color
+            color: $text
+            border-color: transparent
+            &:hover
+                background-color: $hover
+            &:active
+                background-color: $color !important
+            &:focus
+                outline: none
+                &:not(:active)
+                    box-shadow: $button-shadow $text
+
+=signs-size($padding)
+    height: $padding * 2 + $line-height
+    width: $padding * 2 + $line-height
+    max-height: $padding * 2 + $line-height
+    max-width: $padding * 2 + $line-height
+    min-height: $padding * 2 + $line-height
+    min-width: $padding * 2 + $line-height
+// Code from: https://github.com/jgthms/bulma/blob/master/sass/utilities/mixins.sass
+=signs($color, $hover, $active, $transform-before, $transform-after: $transform-before, $bg: transparent)
+    -moz-appearance: none
+    -webkit-appearance: none
+    background-color: $bg
+    border: none
+    cursor: pointer
+    pointer-events: auto
+    display: inline-block
+    flex-grow: 0
+    flex-shrink: 0
+    font-size: 0
+    outline: none
+    position: relative
+    vertical-align: top
+    +signs-size($control-vertical-padding)
+    &.small
+        +signs-size($control-vertical-small-padding)
+    &::before,
+    &::after
+        background-color: $color
+        content: ""
+        display: block
+        left: 50%
+        position: absolute
+        top: 50%
+        transform-origin: center center
+    &::before
+        transform: $transform-before
+        height: 2px
+        width: 50%
+    &::after
+        transform: $transform-after
+        height: 50%
+        width: 2px
+    &:hover
+        background-color: $hover
+    &:active
+        background-color: $active
+    &:focus
+        &:not(:active)
+            box-shadow: $button-shadow $color
+
+$close-transform: translateX(-50%) translateY(-50%) rotate(45deg)
+=close($color)
+    +signs($color, $red, $red-hover, $close-transform)
+
+$plus-transform: translateX(-50%) translateY(-50%)
+$minus-transform-before: $plus-transform
+$minus-transform-after: translateX(-50%) translateY(-50%) rotate(90deg)
+.plus
+    +signs($white, $blue-hover, $blue, $plus-transform, $bg: $blue)
+.minus
+    +signs($white, $red-hover, $red, $minus-transform-before, $minus-transform-after, $bg: $red)
+
+html
+    &.light, &:not(.dark)
+        .button#{$not}
+            +base-button($white, $black, $grey-80, $white-95, $grey-60)
+        .close
+            +close($black)
+    &.dark
+        .button#{$not}
+            +base-button($grey-10, $white, $grey-40, $grey-15, $grey-60)
+        .close
+            +close($white)

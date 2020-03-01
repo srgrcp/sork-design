@@ -2,5 +2,127 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1, 
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "sork-design": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "sass"
+        }
+      },
+      "root": "projects/sork-design",
+      "sourceRoot": "projects/sork-design/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/sork-design",
+            "index": "projects/sork-design/src/index.html",
+            "main": "projects/sork-design/src/main.ts",
+            "polyfills": "projects/sork-design/src/polyfills.ts",
+            "tsConfig": "projects/sork-design/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/sork-design/src/favicon.ico",
+              "projects/sork-design/src/assets"
+            ],
+            "styles": [
+              "projects/sork-design/src/styles.sass"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/sork-design/src/environments/environment.ts",
+                  "with": "projects/sork-design/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "sork-design:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "sork-design:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "sork-design:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sork-design/src/test.ts",
+            "polyfills": "projects/sork-design/src/polyfills.ts",
+            "tsConfig": "projects/sork-design/tsconfig.spec.json",
+            "karmaConfig": "projects/sork-design/karma.conf.js",
+            "assets": [
+              "projects/sork-design/src/favicon.ico",
+              "projects/sork-design/src/assets"
+            ],
+            "styles": [
+              "projects/sork-design/src/styles.sass"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sork-design/tsconfig.app.json",
+              "projects/sork-design/tsconfig.spec.json",
+              "projects/sork-design/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/sork-design/e2e/protractor.conf.js",
+            "devServerTarget": "sork-design:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "sork-design:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "sork-design"
 }

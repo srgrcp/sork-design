@@ -1,0 +1,31 @@
+html
+    &.light, &:not(.dark)
+        background-color: $white
+        color: $black
+        .box
+            background-color: $white-97
+    &.dark
+        background-color: $grey-10
+        color: $white
+        .box
+            background-color: $grey-20
+
+.section
+    padding-left: $section-padding
+    padding-right: $section-padding
+    padding-top: $section-padding
+
+:last-child.section
+    padding-bottom: $section-padding
+
+.title
+    margin-bottom: $title-margin
+.subtitle
+    margin-bottom: $subtitle-margin
+
+.content
+    padding: $content-padding
+
+.actions
+    margin-top: $actions-margin
+    display: flex
