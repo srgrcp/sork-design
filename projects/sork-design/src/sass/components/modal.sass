@@ -35,7 +35,8 @@
                 right: 0
                 top: 0
         .content
-            padding-right: $modal-content-padding
+            >p
+                padding-right: $modal-content-padding
         .footer
             margin-top: $actions-margin
             display: flex
@@ -43,6 +44,10 @@
                 flex-grow: 1
 
 html
+    &.round-style
+        .modal
+            .window
+                border-radius: $round
     &.light, &:not(.dark)
         .modal
             +modal($white, $black)

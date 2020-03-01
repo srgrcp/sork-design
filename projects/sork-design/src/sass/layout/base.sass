@@ -1,4 +1,7 @@
 html
+    &.round-style
+        .box
+            border-radius: $round
     &.light, &:not(.dark)
         background-color: $white
         color: $black
@@ -28,6 +31,9 @@ html
 .content
     padding: $content-padding
 
-.actions
+.controls
     margin-top: $actions-margin
     display: flex
+    &.detached
+        :not(:last-child)
+            margin-right: $control-margin

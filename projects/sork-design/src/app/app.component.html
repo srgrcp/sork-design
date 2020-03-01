@@ -2,8 +2,7 @@
 
 <section class="section">
     <div class="content">
-        <h1 class="title">Sork Design</h1>
-        <p>SASS Framework</p>
+        <h1 class="jumbo">Sork Design</h1>
     </div>
 </section>
 
@@ -13,33 +12,47 @@
             <h1 class="title">Code</h1>
             <code>JavaScript {{ "{ test: 'hello' }" }}</code>
             <h1 class="title">Buttons</h1>
-            <div class="actions">
+            <div class="controls">
                 <button class="button primary">Hello World!</button>
                 <button class="button short primary">Short</button>
                 <button class="plus"></button>
                 <button class="minus"></button>
                 <button class="close"></button>
             </div>
-            <div class="actions">
+            <div class="controls">
                 <button class="button accent">Hello World!</button>
                 <button class="button short dark">Short</button>
                 <button class="plus dark"></button>
                 <button class="minus dark"></button>
                 <button class="close dark"></button>
             </div>
-            <div class="actions">
+            <div class="controls">
                 <button class="button small primary">Hello World!</button>
                 <button class="button short small primary">Short</button>
                 <button class="plus small"></button>
                 <button class="minus small"></button>
                 <button class="close small"></button>
             </div>
-            <div class="actions">
+            <div class="controls">
                 <button class="button small accent">Hello World!</button>
                 <button class="button short small dark">Short</button>
                 <button class="plus small dark"></button>
                 <button class="minus small dark"></button>
                 <button class="close small dark"></button>
+            </div>
+            <div class="controls">
+                <button disabled class="button accent">Hello World!</button>
+                <button disabled class="button short dark">Short</button>
+                <button disabled class="plus dark"></button>
+                <button disabled class="minus dark"></button>
+                <button disabled class="close dark"></button>
+            </div>
+            <div class="controls detached">
+                <button class="button accent">Hello World!</button>
+                <button class="button short dark">Short</button>
+                <button class="plus dark"></button>
+                <button class="minus dark"></button>
+                <button class="close dark"></button>
             </div>
 
             <h1 class="title">Modals</h1>
@@ -63,7 +76,7 @@
                 </div>
             </div>
 
-            <div class="actions">
+            <div class="controls">
                 <button (click)="modal = !modal" class="button primary">Open Modal</button>
             </div>
         </div>
