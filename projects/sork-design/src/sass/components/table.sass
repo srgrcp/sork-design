@@ -1,0 +1,47 @@
+.table
+    th, td
+        padding: $cell-padding
+
+html
+    &.dark
+        .table
+            thead
+                tr
+                    background-color: $grey-15
+            tbody
+                tr
+                    background-color: $grey-18
+                    &:not(:last-child)
+                        border-bottom: $control-border solid $grey-15
+            &.hoverable
+                tbody
+                    tr
+                        &:hover
+                            background-color: $grey-20
+            &.sortable
+                thead
+                    th
+                        cursor: pointer
+                        &:hover
+                            background-color: $grey-20
+    &.light, &:not(.dark)
+        .table
+            thead
+                tr
+                    background-color: $grey-92
+            tbody
+                tr
+                    background-color: $white-95
+                    &:not(:last-child)
+                        border-bottom: $control-border solid $grey-92
+            &.hoverable
+                tbody
+                    tr
+                        &:hover
+                            background-color: $grey-92
+            &.sortable
+                thead
+                    th
+                        cursor: pointer
+                        &:hover
+                            background-color: $white-95

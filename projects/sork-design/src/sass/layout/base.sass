@@ -11,7 +11,7 @@ html
         background-color: $grey-10
         color: $white
         .box
-            background-color: $grey-20
+            background-color: $grey-13
 
 .section
     padding-left: $section-padding
@@ -20,6 +20,16 @@ html
 
 :last-child.section
     padding-bottom: $section-padding
+
+.box
+    &:not(:last-child)
+        margin-bottom: $box-margin
+
+.fullwidth
+    &:not(.i)
+        width: 100%
+    &.i
+        widh: 100% !important
 
 .title
     margin-bottom: $title-margin
@@ -32,7 +42,13 @@ html
     padding: $content-padding
 
 .controls
-    margin-top: $actions-margin
+    &:not(.table-controls)
+        margin-top: $actions-margin
+    &.table-controls
+        margin: 0
+        justify-content: flex-end
+        .input
+            flex-grow: 1
     display: flex
     &.detached
         :not(:last-child)

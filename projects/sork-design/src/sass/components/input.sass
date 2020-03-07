@@ -1,0 +1,22 @@
+.input
+    outline: none
+    border-style: solid
+    +control
+
+html
+    &.dark
+        .input
+            border-color: $grey-20
+            background-color: $grey-18
+            color: $white
+            &:hover
+                border-color: $grey-40
+            &:focus
+                box-shadow: $button-shadow $primary
+    &.light, &:not(.dark)
+        .input
+            border-color: $grey-92
+            &:hover
+                border-color: $grey-80
+            &:focus
+                box-shadow: $button-shadow $primary

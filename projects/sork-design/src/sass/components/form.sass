@@ -1,0 +1,15 @@
+.field
+    &:not(:last-child)
+        margin-bottom: $field-margin
+    label
+        display: block
+        font-weight: 500
+        margin-bottom: $label-margin
+    > .input
+        width: 100%
+        &[required]
+            &.ng-dirty
+                &.ng-invalid
+                    box-shadow: $button-shadow $red
+                &.ng-valid
+                    box-shadow: $button-shadow $green

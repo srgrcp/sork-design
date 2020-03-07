@@ -1,0 +1,58 @@
+html
+    &.round-style
+        .button, .close, .plus, .minus, .input
+            border-radius: $round
+        .modal .window .footer
+            :not(:last-child):first-child
+                &.button, &.close, &.plus, &.minus, &.input
+                    border-radius: 0 0 0 $round
+            :not(:first-child):last-child
+                &.button, &.close, &.plus, &.minus, &.input
+                    border-radius: 0 0 $round 0
+            :not(:last-child):not(:first-child)
+                &.button, &.close, &.plus, &.minus, &.input
+                    border-radius: 0
+            :first-child:last-child
+                &.button, &.close, &.plus, &.minus, &.input
+                    border-radius: 0 0 $round $round
+        .controls
+            &.detached
+                .button, .close, .plus, .minus
+                    border-radius: $round
+            &:not(.table-controls)
+                &:not(.detached)
+                    :not(:last-child):first-child
+                        &.button, &.close, &.plus, &.minus, &.input
+                            border-radius: $round 0 0 $round
+                    :not(:first-child):last-child
+                        &.button, &.close, &.plus, &.minus, &.input
+                            border-radius: 0 $round $round 0
+                    :not(:last-child):not(:first-child)
+                        &.button, &.close, &.plus, &.minus, &.input
+                            border-radius: 0
+                    :first-child:last-child
+                        &.button, &.close, &.plus, &.minus, &.input
+                            border-radius: $round
+            &.table-controls
+                :not(:last-child):first-child
+                    &.button, &.close, &.plus, &.minus, &.input
+                        border-radius: $round 0 0 0
+                :not(:first-child):last-child
+                    &.button, &.close, &.plus, &.minus, &.input
+                        border-radius: 0 $round 0 0
+                :not(:last-child):not(:first-child)
+                    &.button, &.close, &.plus, &.minus, &.input
+                        border-radius: 0
+                :first-child:last-child
+                    &.button, &.close, &.plus, &.minus, &.input
+                        border-radius: $round $round 0 0
+    &.light, &:not(.dark)
+        .button#{$not}
+            +base-button($white, $black, $grey-80, $white-95, $grey-60)
+        .close
+            +close($black)
+    &.dark
+        .button#{$not}
+            +base-button($grey-10, $white, $grey-40, $grey-15, $grey-60)
+        .close
+            +close($white)

@@ -11,6 +11,11 @@
         <div class="content">
             <h1 class="title">Code</h1>
             <code>JavaScript {{ "{ test: 'hello' }" }}</code>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="content">
             <h1 class="title">Buttons</h1>
             <div class="controls">
                 <button class="button primary">Hello World!</button>
@@ -54,7 +59,11 @@
                 <button class="minus dark"></button>
                 <button class="close dark"></button>
             </div>
-
+        </div>
+    </div>
+    
+    <div class="box">
+        <div class="content">
             <h1 class="title">Modals</h1>
 
             <div [class.active]="modal" class="modal">
@@ -79,6 +88,61 @@
             <div class="controls">
                 <button (click)="modal = !modal" class="button primary">Open Modal</button>
             </div>
+        </div>
+    </div>
+    
+    <div class="box">
+        <div class="content">
+            <h1 class="title">Table</h1>
+
+            <div class="controls table-controls">
+                <input type="text" class="input" placeholder="Input">
+                <button class="button primary">Hello World!</button>
+                <button class="button short primary">Short</button>
+                <button class="plus"></button>
+                <button class="minus"></button>
+            </div>
+            <table class="table fullwidth hoverable sortable">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Rating</th>
+                        <th>Title</th>
+                        <th>Reviews</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let movie of movies">
+                        <td>{{ movie.rank }}</td>
+                        <td>{{ movie.rating }}</td>
+                        <td>{{ movie.title }}</td>
+                        <td>{{ movie.reviews }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <h1 class="title">Forms</h1>
+
+            <form [formGroup]="form" class="form">
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input formControlName="name" type="text" class="input" id="name" required>
+                </div>
+                <div class="field">
+                    <label for="email">E-mail</label>
+                    <input formControlName="email" type="text" class="input" id="email" required>
+                </div>
+                <div class="field">
+                    <label for="country">Country</label>
+                    <input formControlName="country" type="text" class="input" id="country">
+                </div>
+                <div class="field">
+                    <button class="button primary">Send</button>
+                </div>
+            </form>
         </div>
     </div>
 </section>

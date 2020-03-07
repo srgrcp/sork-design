@@ -11,6 +11,29 @@ $button-shadow: inset 0 -3px 0 0 !default
 
 // Modal
 $modal-width: 640px !default
-$overlay-z-index: 50 !default
-$modal-window-z-index: 51 !default
+$overlay-z-index: 150 !default
+$modal-window-z-index: 151 !default
 $modal-content-padding: 5rem !default
+
+// Table
+$cell-padding: 0.75rem 0.75rem !default
+
+// Form
+$field-margin: 1rem !default
+$label-margin: 0.5rem !default
+
+=control
+    font-size: 1rem
+    padding: $control-padding
+    font-family: $font-family
+    line-height: $line-height
+    border-width: $control-border
+    &[disabled]
+        opacity: 0.5
+        cursor: not-allowed
+    &.short
+        padding: calc(#{$control-vertical-padding} - #{$control-border})
+        &.small
+            padding: calc(#{$control-vertical-small-padding} - #{$control-border}) calc(#{$control-vertical-padding} - #{$control-border})
+    &.small:not(.short)
+        padding: $control-small-padding
